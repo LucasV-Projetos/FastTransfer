@@ -2,7 +2,7 @@
 
 namespace FastTransfer.Telas
 {
-    partial class frmEnviar
+    partial class frmClient
     {
         /// <summary>
         /// Required designer variable.
@@ -69,6 +69,7 @@ namespace FastTransfer.Telas
             this.btnEnviar.TabIndex = 2;
             this.btnEnviar.Text = "Enviar";
             this.btnEnviar.UseVisualStyleBackColor = true;
+            this.btnEnviar.Click += new System.EventHandler(this.btnEnviar_Click);
             // 
             // btnVerificarConexao
             // 
@@ -139,9 +140,9 @@ namespace FastTransfer.Telas
             this.ipaddress.ReadOnly = false;
             this.ipaddress.Size = new System.Drawing.Size(139, 28);
             this.ipaddress.TabIndex = 8;
-            this.ipaddress.Text = "...";
+            this.ipaddress.Text = "127.0.0.1";
             // 
-            // frmEnviar
+            // frmClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -156,7 +157,7 @@ namespace FastTransfer.Telas
             this.Controls.Add(this.ipaddress);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
-            this.Name = "frmEnviar";
+            this.Name = "frmClient";
             this.Text = "Enviar arquivo";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPorta)).EndInit();
             this.ResumeLayout(false);

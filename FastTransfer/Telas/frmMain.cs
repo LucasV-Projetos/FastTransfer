@@ -28,26 +28,26 @@ namespace FastTransfer
 
         private void btnEnviar_Click(object sender, EventArgs e)
         {
-            if (IsFormOpen(typeof (frmEnviar)))
+            if (IsFormOpen(typeof (frmClient)))
             {
 
             }
-            if (!IsFormOpen(typeof(frmEnviar)))
+            if (!IsFormOpen(typeof(frmClient)))
             {
-                Form frmEnviar = new frmEnviar();
+                Form frmEnviar = new frmClient();
                 frmEnviar.Show();
             }            
         }
 
         private void btnReceber_Click(object sender, EventArgs e)
         {
-            if (IsFormOpen(typeof(frmReceber)))
+            if (IsFormOpen(typeof(frmServer)))
             {
 
             }
-            if (!IsFormOpen(typeof(frmReceber)))
+            if (!IsFormOpen(typeof(frmServer)))
             {
-                Form frmReceber = new frmReceber();
+                Form frmReceber = new frmServer();
                 frmReceber.Show();
             }
         }
