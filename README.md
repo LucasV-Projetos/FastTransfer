@@ -16,8 +16,8 @@ Veja o andamento do projeto e as fases de desenvolvimento definidas por mim
   1.2. Análise de requisitos
   1.3. Projeção
 2. Desenvolvimento
-  >> 2.1. Criação das interfaces gráficas
-  2.2. Implementação da biblioteca System.Net.Sockets, System.IO entre outras
+  2.1. Criação das interfaces gráficas
+  >> 2.2. Implementação da biblioteca System.Net.Sockets, System.IO entre outras
   2.3. Adição de novas features
 3. Manutenção
   3.1. Testes e correção de bugs
@@ -25,20 +25,22 @@ Veja o andamento do projeto e as fases de desenvolvimento definidas por mim
   3.3. Implantação e finalização
 ````
 
-### Ajustes e melhorias
+## 🗿 Ajustes e melhorias
 
 O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas nas seguintes tarefas:
 
-- [x] Criação dos formulários
-- [x] Funcionamento básico
-- [ ] Criação do cliente
-- [ ] Criação do servidor
-- [ ] Manipulação de arquivos locais através da aplicação
-<br>...
+- [x] Criação do cliente
+- [x] Criação do servidor
+- [x] Transfência de arquivos através da aplicação
+- [ ] Correção de pequenos bugs
+- [ ] Adição de barra de progresso durante as transferências
+- [ ] ...
+
+<p>&nbsp</p>
 
 ## 💻 Pré-requisitos
 
-Antes de começar, verifique se você atendeu aos seguintes requisitos:
+Antes de começar, verifique se você atendeu aos seguintes requisitos para ver o código fonte do projeto:
 * Você instalou a IDE `<Visual Studio Community>` na sua versão mais recente
 * Você instalou a versão 4.8 ou superior do `<.NET Framework>`
 * Você tem uma máquina com `<Windows 10 ou 11>`
@@ -46,15 +48,15 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 ```
 git clone https://github.com/LucasV-Projetos/Projeto-FastTransfer.git
 ```
-> ou clique [aqui](https://github.com/LucasV-Projetos/FastTransfer/archive/refs/heads/main.zip) para fazer download do projeto
+> ou clique [aqui](https://github.com/LucasV-Projetos/FastTransfer/archive/refs/heads/main.zip) para fazer download
 ## ☕ Executando
 
-Para usar o FastTransfer, siga estas etapas:
+Para editar o FastTransfer, siga estas etapas:
 
 ```
 1. Descompacte o ZIP
 2. Entre na pasta FastTransfer
-3. Abra o arquivo "FastTransfer.sln" com o Visual Studio
-4. "F5" para compilar e executar a aplicação
-5. Fique a vontade para editar como quiser
+3. Abra o abra o arquivo "FastTransfer.sln" com o Visual Studio
+4. Fique a vontade para editar como quiser
+5. Aperte "F5" para compilar e executar a aplicação
 ```

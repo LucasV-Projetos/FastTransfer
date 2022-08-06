@@ -36,7 +36,6 @@ namespace FastTransfer.Telas
             this.txbCaminho = new System.Windows.Forms.TextBox();
             this.btnAlterarCaminho = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnFecharConexao = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPorta)).BeginInit();
             this.SuspendLayout();
             // 
@@ -112,23 +111,11 @@ namespace FastTransfer.Telas
             this.label2.TabIndex = 5;
             this.label2.Text = "Receber arquivos neste diretoório:";
             // 
-            // btnFecharConexao
-            // 
-            this.btnFecharConexao.Location = new System.Drawing.Point(262, 33);
-            this.btnFecharConexao.Name = "btnFecharConexao";
-            this.btnFecharConexao.Size = new System.Drawing.Size(100, 29);
-            this.btnFecharConexao.TabIndex = 6;
-            this.btnFecharConexao.Text = "Fechar conexão";
-            this.btnFecharConexao.UseVisualStyleBackColor = true;
-            this.btnFecharConexao.Visible = false;
-            this.btnFecharConexao.Click += new System.EventHandler(this.btnFecharConexao_Click);
-            // 
             // frmServer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(398, 162);
-            this.Controls.Add(this.btnFecharConexao);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnAlterarCaminho);
             this.Controls.Add(this.txbCaminho);
@@ -139,7 +126,6 @@ namespace FastTransfer.Telas
             this.MaximizeBox = false;
             this.Name = "frmServer";
             this.Text = "Receber Arquivos";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmServer_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPorta)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -154,6 +140,5 @@ namespace FastTransfer.Telas
         private System.Windows.Forms.TextBox txbCaminho;
         private System.Windows.Forms.Button btnAlterarCaminho;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnFecharConexao;
     }
 }

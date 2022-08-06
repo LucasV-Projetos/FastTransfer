@@ -7,29 +7,25 @@ using System.Net;
 using System.Net.Sockets;
 using System.IO;
 using System.Windows;
+using FastTransfer.Classes;
 
 namespace FastTransfer.Classes
 {
 	public class Server
 	{
-        static TcpListener server = null;
-        static TcpClient client = null;
-        static Stream Stream = null;
-        static int Size;
-        static string Name;
-        static string Path;
-        static byte[] BufferSize;
+        private static TcpListener Listener = null;
+        private static TcpClient Client = new TcpClient();
+        private static Stream Stream = null;
+        private static int BufferSize;
+        private static string[] NameSize;
+        private static string Path;
 
-
-
-        public async static void OpenPort(int port)
+        public static void OpenPort(int port)
         {
             try
             {
-                server = new TcpListener(IPAddress.Loopback, port);
-                server.Start();
-                client = await server.AcceptTcpClientAsync();
-                Stream = client.GetStream();
+                Listener = new TcpListener(IPAddress.Loopback, port);
+                Listener.Start();
             }
             catch (SocketException se)
             {
@@ -37,29 +33,35 @@ namespace FastTransfer.Classes
             }
         }
 
-        public static void NameAndSize(string path)
+        public static void ClosePort()
         {
-            Byte[] nameAndSize = new byte[32];
-            Stream.Read(nameAndSize, 0, nameAndSize.Length);
-            string nameSize = Encoding.UTF8.GetString(nameAndSize).Trim('\0');
-            string[] name = nameSize.Split('!');
-            File.Create(path + name[0]);
+            Listener.Stop();
+        }
 
-            Path = path;
-            Size = Convert.ToInt32(name[1]);
+        public static async void NameAndSize(string path)
+        {
+            Client = await Listener.AcceptTcpClientAsync();
+            Stream = Client.GetStream();
+            byte[] namesize = new byte[256];
+            await Stream.ReadAsync(namesize, 0, namesize.Length);
+
+            NameSize = Encoding.UTF8.GetString(namesize).Split('!', '\0');
+            Path = path + NameSize[0];
+            File.Create(Path).Close();
+
+            BufferSize = Convert.ToInt32(NameSize[1]);
+            Classes.Client.SendFile();
+            Content();
         }
 
         public static void Content()
         {
-            byte[] content = new byte[Size];
+            byte[] content = new byte[BufferSize];
+            Stream = Client.GetStream();
             Stream.Read(content, 0, content.Length);
-            File.WriteAllBytes(Path + Name[0], content);
+            File.WriteAllBytes(Path, content);
         }
 
-        public static void ClosePort()
-        {          
-            server.Stop();
-        }
 
     }
 }

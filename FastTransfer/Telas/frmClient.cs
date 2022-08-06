@@ -15,6 +15,7 @@ namespace FastTransfer.Telas
 {
     public partial class frmClient : Form
     {
+        private bool isConnected;
         public frmClient()
         {
             InitializeComponent();
@@ -24,7 +25,7 @@ namespace FastTransfer.Telas
         private void btnSelecionar_Click(object sender, EventArgs e)
         {
             OpenFileDialog opd = new OpenFileDialog();
-            opd.InitialDirectory = "C:\\";
+            opd.InitialDirectory = @"C:\\";
             opd.RestoreDirectory = true;
             opd.Multiselect = false;
             opd.FilterIndex = 1;
@@ -36,18 +37,42 @@ namespace FastTransfer.Telas
             if (opd.ShowDialog() == DialogResult.OK)
             {
                 txbArquivos.Text = opd.FileName;
+                if (txbArquivos.Text != "" & isConnected)
+                {
+                    btnEnviar.Enabled = true;
+                }
             }
         }
 
         private void btnEnviar_Click(object sender, EventArgs e)
         {
-            Client.Connect(ipaddress.Text, (int)numericUpDownPorta.Value);
 
             Client.SendNameSize(txbArquivos.Text);
-
-            //Client.SendFile(txbArquivos.Text);
-           
+            //Client.SendFile();           
         }
 
+        private void btnConectar_Click(object sender, EventArgs e)
+        {
+            isConnected = !isConnected;
+            if (Client.Connect(ipaddress.Text, (int)numericUpDownPorta.Value))
+            {
+                btnConectar.Text = "Desconectar";
+                ipaddress.Enabled = false;
+                numericUpDownPorta.Enabled = false;
+            }   
+            if (!isConnected)
+            {
+                Client.Disconnect();
+                btnConectar.Text = "Conectar";
+                btnEnviar.Enabled = false;
+                ipaddress.Enabled = true;
+                numericUpDownPorta.Enabled = true;
+            }
+            if (txbArquivos.Text != "" & isConnected)
+            {
+                btnEnviar.Enabled = true;
+            }
+        }      
+        
     }
 }

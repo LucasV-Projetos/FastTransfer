@@ -33,7 +33,7 @@ namespace FastTransfer.Telas
             this.label1 = new System.Windows.Forms.Label();
             this.txbArquivos = new System.Windows.Forms.TextBox();
             this.btnEnviar = new System.Windows.Forms.Button();
-            this.btnVerificarConexao = new System.Windows.Forms.Button();
+            this.btnConectar = new System.Windows.Forms.Button();
             this.numericUpDownPorta = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.btnSelecionar = new System.Windows.Forms.Button();
@@ -62,6 +62,7 @@ namespace FastTransfer.Telas
             // 
             // btnEnviar
             // 
+            this.btnEnviar.Enabled = false;
             this.btnEnviar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEnviar.Location = new System.Drawing.Point(208, 114);
             this.btnEnviar.Name = "btnEnviar";
@@ -71,15 +72,16 @@ namespace FastTransfer.Telas
             this.btnEnviar.UseVisualStyleBackColor = true;
             this.btnEnviar.Click += new System.EventHandler(this.btnEnviar_Click);
             // 
-            // btnVerificarConexao
+            // btnConectar
             // 
-            this.btnVerificarConexao.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVerificarConexao.Location = new System.Drawing.Point(403, 26);
-            this.btnVerificarConexao.Name = "btnVerificarConexao";
-            this.btnVerificarConexao.Size = new System.Drawing.Size(152, 28);
-            this.btnVerificarConexao.TabIndex = 5;
-            this.btnVerificarConexao.Text = "Verificar conexão";
-            this.btnVerificarConexao.UseVisualStyleBackColor = true;
+            this.btnConectar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConectar.Location = new System.Drawing.Point(403, 26);
+            this.btnConectar.Name = "btnConectar";
+            this.btnConectar.Size = new System.Drawing.Size(152, 28);
+            this.btnConectar.TabIndex = 5;
+            this.btnConectar.Text = "Conectar";
+            this.btnConectar.UseVisualStyleBackColor = true;
+            this.btnConectar.Click += new System.EventHandler(this.btnConectar_Click);
             // 
             // numericUpDownPorta
             // 
@@ -148,7 +150,7 @@ namespace FastTransfer.Telas
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(563, 185);
             this.Controls.Add(this.btnSelecionar);
-            this.Controls.Add(this.btnVerificarConexao);
+            this.Controls.Add(this.btnConectar);
             this.Controls.Add(this.numericUpDownPorta);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnEnviar);
@@ -170,7 +172,7 @@ namespace FastTransfer.Telas
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txbArquivos;
         private System.Windows.Forms.Button btnEnviar;
-        private System.Windows.Forms.Button btnVerificarConexao;
+        private System.Windows.Forms.Button btnConectar;
         private System.Windows.Forms.NumericUpDown numericUpDownPorta;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnSelecionar;
